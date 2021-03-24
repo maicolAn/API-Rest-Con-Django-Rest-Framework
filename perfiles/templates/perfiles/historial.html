@@ -1,0 +1,50 @@
+{% extends "perfiles/base.html" %}
+
+{% block title %}Historial{% endblock %}
+
+{% block content %}
+    
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="intro">
+                <div class="left-0 text-left bg-faded p-5 rounded">
+                    {% if consultas %}
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                  <th scope="col"></th>
+                                  <th scope="col">Edad</th>
+                                  <th scope="col">Genero</th>
+                                  <th scope="col">Presion Sistolica</th>
+                                  <th scope="col">Presion Diastolica</th>
+                                  <th scope="col">IMC</th>
+                                  <th scope="col">Colesterol</th>
+                                </tr>
+                            </thead>
+
+                            {% for consulta in consultas %}
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>{{consulta.edad}}</td>
+                                    <td>{{sexo}}</td>
+                                    <td>{{consulta.presion_s}}</td>
+                                    <td>{{consulta.presion_d}}</td>
+                                    <td>{{consulta.imc}}</td>
+                                    <td>{{consulta.colesterol_t}}</td>
+                                </tr>
+
+                            {% endfor %}
+                           
+                        </table>
+
+                    {% else %}
+                        
+                        
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

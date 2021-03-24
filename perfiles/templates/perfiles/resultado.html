@@ -1,0 +1,51 @@
+{% extends "perfiles/base.html" %}
+
+{% block title %}Resultado{% endblock %}
+
+{% block content %}
+    
+    <section class="page-section clearfix">
+        <div class="container">
+            <div class="intro">
+                <div class="left-0 text-left bg-faded p-5 rounded">
+                    {% if resultados %}
+                        <h1 style="margin-bottom: 30px;">Tus resultados son: {{ resultados }}</h1>
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                  <th scope="col"></th>
+                                  <th scope="col">Edad</th>
+                                  <th scope="col">Genero</th>
+                                  <th scope="col">Presion Sistolica</th>
+                                  <th scope="col">Presion Diastolica</th>
+                                  <th scope="col">IMC</th>
+                                  <th scope="col">Colesterol</th>
+                                </tr>
+                            </thead>
+
+                            {% for consulta in consultas %}
+                                <tr>
+                                    <td><input id="{{consulta.id}}" type="checkbox"></td>
+                                    <td>{{consulta.edad}}</td>
+                                    <td>{{sexo}}</td>
+                                    <td>{{consulta.presion_s}}</td>
+                                    <td>{{consulta.presion_d}}</td>
+                                    <td>{{consulta.imc}}</td>
+                                    <td>{{consulta.colesterol_t}}</td>
+                                </tr>
+
+                            {% endfor %}
+                           
+                        </table>
+
+                    {% else %}
+                        
+                        
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

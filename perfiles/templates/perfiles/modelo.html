@@ -1,0 +1,55 @@
+{% extends "perfiles/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <div class="left-0 text-left bg-faded p-5 rounded">
+                <form action="/buscar/" method="POST">
+                    {% csrf_token %}
+                    {% if user.is_authenticated %}
+
+                        <p > Nombre:
+                            <input class="form-control" type="text" name="nombre" value="{{user.first_name}}">
+                            Apellidos
+                            <input class="form-control" type="text" name="apellido" value="{{user.last_name}}">
+                        </p>
+                        <p> Edad:
+                            <input class="form-control" placeholder="Ingresa tu Edad" type="number" name="edad">
+                        </p>
+                        <p>Genero:
+                            <select class="form-control" name="select">
+                                <option value="1">Masculino</option>
+                                <option value="2" selected>Femenino</option>
+        
+                            </select>
+                        </p>
+                        <p> Indice de Masa Corporal (IMC)
+                            <input class="form-control" placeholder="Ingresa tu IMC" type="number" name="imc">
+                        </p>
+                        <p style="text-align: left;">
+                            Presion arterial sistolica:
+                            <input class="form-control" placeholder="Ingresa tu presion sistolica" type="number" name="presions">
+                        </p>
+                        <p style="text-align: left;">
+                            Presion arterial diastolica:
+                            <input class="form-control" placeholder="Ingresa tu presion diastolica" type="number" name="presiond">
+                        </p>
+                        <p> Colesterol total (mg/dL):
+                            <input class="form-control" placeholder="Ingresa tu colesterol" type="number" name="colesterolt">
+                        </p>
+                        <p>
+                            <input class="form-control" type="submit" value="Enviar">
+                        </p>
+                    {% endif %}
+                
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+ {% endblock %}

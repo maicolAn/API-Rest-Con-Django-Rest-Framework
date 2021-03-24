@@ -1,0 +1,65 @@
+<html>
+
+<head>
+
+    {% load static %}
+
+    <!-- Bootstrap -->
+    <link href="{% static 'ProyectoTesisApp/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+
+     <!-- Fonts -->
+    
+     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+     
+     
+    <!-- Styles -->
+    <link href="{% static 'ProyectoTesisApp/css/gestion5.css' %} " rel="stylesheet">
+    <link href="{% static 'ProyectoTesisApp/css/signin.css' %}" rel="stylesheet">
+    
+    
+</head>
+
+<body class="text-center">
+    <main class="form-signin">
+        {% if user.is_authenticated %}
+            <h1>Hola {{ user.username }}, ya has iniciado sesión</h1>
+
+        {% else %}
+            
+            <form method="POST">
+                {% csrf_token %}
+                
+                <h1 class="h3 mb-3 fw-normal">Iniciar Sesión</h1>    
+                <div class="form-floating mb-3">  
+                    {{ form.username }}
+                    
+                </div>   
+                <div class="form-floating mb-3">
+                    {{ form.password }}
+                    
+                
+                </div>
+                <div class="checkbox mb-3">
+                    <label>
+                      <input type="checkbox" value="remember-me"> Recuerdame
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary" type="submit">Enviar</button>
+                
+            </form>
+            
+        {% endif %}
+    </main>
+
+
+     <!-- Bootstrap -->
+     <script src="{% static 'ProyectoTesisApp/vendor/jquery/jquery.min.js' %} "></script>
+     <script src="{% static 'ProyectoTesisApp/vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+</body>
+
+</html>
+
+                
+                
